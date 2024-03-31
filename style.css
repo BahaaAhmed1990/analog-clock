@@ -1,0 +1,186 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: Gotham Rounded, sans-serif;
+}
+
+body {
+  /* set background of body */
+  background-color: #b99c09;
+  background: url("/wall.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* center clock */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* remove scroll */
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* fill background on small devices */
+@media screen and (max-width: 570px) {
+  body {
+    background-repeat: round;
+  }
+}
+
+.clock {
+  /* define clock dimension */
+  width: 300px;
+  height: 300px;
+  /* set background */
+  background-color: rgba(255, 255, 255, 1);
+  /* make clock circle  */
+  border-radius: 50%;
+  border: 5px solid black;
+
+  box-shadow: 1px 2px 11px 8px #00000075;
+  position: relative;
+}
+
+.clock .number {
+  /* // set rotation variable default for all numbers div */
+  --rotation: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  /* rotate every number div according to its variable */
+  transform: rotate(var(--rotation));
+}
+.clock .number i {
+  /* make i element block to rotate it */
+  display: inline-block;
+  color: #88423c;
+}
+
+/* set the positions of numbers div inside clock  */
+.clock .number-container1 {
+  --rotation: 30deg;
+}
+
+.clock .number-container2 {
+  --rotation: 60deg;
+}
+.clock .number-container3 {
+  --rotation: 90deg;
+}
+.clock .number-container4 {
+  --rotation: 120deg;
+}
+.clock .number-container5 {
+  --rotation: 150deg;
+}
+.clock .number-container6 {
+  --rotation: 180deg;
+}
+.clock .number-container7 {
+  --rotation: 210deg;
+}
+.clock .number-container8 {
+  --rotation: 240deg;
+}
+.clock .number-container9 {
+  --rotation: 270deg;
+}
+.clock .number-container10 {
+  --rotation: 300deg;
+}
+.clock .number-container11 {
+  --rotation: 330deg;
+}
+
+/* rotate i elements  */
+.number1 {
+  transform: rotate(-38deg);
+}
+.number2 {
+  transform: rotate(-64deg);
+}
+.number3 {
+  transform: rotate(264deg);
+}
+.number4 {
+  transform: rotate(234deg);
+}
+.number5 {
+  transform: rotate(201deg);
+}
+.number6 {
+  transform: rotate(167deg);
+}
+.number7 {
+  transform: rotate(146deg);
+}
+.number8 {
+  transform: rotate(115deg);
+}
+.number9 {
+  transform: rotate(81deg);
+}
+.number10 {
+  transform: rotate(55deg);
+}
+.number11 {
+  transform: rotate(20deg);
+}
+
+/* style clock hands */
+
+.clock .hand {
+  /* set rotation variable to 0  */
+  --rotation: 0;
+  /* center it inside clock */
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+
+  border: 1px solid white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* make hands rotate around its bottom point */
+  transform-origin: bottom;
+  /* show hands above all */
+  z-index: 10;
+  /* center hands on x axis and rotate it 0 . using js to modify this to move hands  */
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+
+/* make big dot in center of clock */
+.clock::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  z-index: 11;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+/* style seconds hand */
+.clock .hand.second {
+  width: 3px;
+  height: 45%;
+  background-color: red;
+}
+
+/* style minutes hand */
+.clock .hand.minute {
+  width: 7px;
+  height: 40%;
+  background-color: black;
+}
+
+/* style hours hand */
+.clock .hand.hour {
+  width: 10px;
+  height: 35%;
+  background-color: black;
+}
