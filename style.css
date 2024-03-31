@@ -8,7 +8,7 @@
 body {
   /* set background of body */
   background-color: #b99c09;
-  background: url("/wall.jpg");
+  background: url("images/wall.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   /* center clock */
